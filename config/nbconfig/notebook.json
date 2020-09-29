@@ -3,10 +3,13 @@
     "execute_time/ExecuteTime": true, 
     "toc2/main": true, 
     "hinterland/hinterland": true, 
+    "printview/main": true, 
     "codefolding/main": true, 
-    "code_font_size/code_font_size": true, 
+    "python-markdown/main": true, 
+    "notify/notify": true, 
     "varInspector/main": true, 
     "code_prettify/autopep8": true, 
-    "notify/notify": true
+    "code_font_size/code_font_size": true, 
+    "snippets/main": true
   }
 }
