@@ -1,0 +1,12 @@
+{
+  "load_extensions": {
+    "execute_time/ExecuteTime": true, 
+    "toc2/main": true, 
+    "hinterland/hinterland": true, 
+    "codefolding/main": true, 
+    "code_font_size/code_font_size": true, 
+    "varInspector/main": true, 
+    "code_prettify/autopep8": true, 
+    "notify/notify": true
+  }
+}
