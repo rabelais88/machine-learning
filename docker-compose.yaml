@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  jupyter:
+    build:
+      dockerfile: ./dockerfile
+      context: .
+    volumes:
+      - ./notebooks:/opt/notebooks
+    ports:
+      - 8888:8888
