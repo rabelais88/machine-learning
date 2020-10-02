@@ -3,23 +3,32 @@ RUN /opt/conda/bin/conda install jupyter notebook nb_conda seaborn -y --quiet
 RUN yes | pip install graphviz sklearn pandas_profiling
 RUN yes | pip install sqlalchemy pymysql
 RUN /opt/conda/bin/conda install -c conda-forge jupyter_contrib_nbextensions jupyter_nbextensions_configurator autopep8
+RUN DIR_BEFORE=$(pwd)
+# to use C compiler in mecab-ko
+RUN apt-get update
+RUN apt install -y build-essential automake
 # installing mecab-ko
 RUN wget -O /tmp/mecab-0.996-ko-0.9.2.tar.gz  https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz
-RUN tar -zxvf /tmp/mecab-0.996-ko-0.9.2.tar.gz -C /tmp
-RUN cd /tmp/mecab-0.996-ko-0.9.2
-RUN ./configure
-RUN make
-RUN sudo make install
+# https://stackoverflow.com/questions/44451696/bin-sh-1-configure-not-found-dockerfile
+RUN tar -zxvf /tmp/mecab-0.996-ko-0.9.2.tar.gz -C /tmp \
+  && cd /tmp/mecab-0.996-ko-0.9.2 \
+  && ./configure \
+  && make \
+  && make install \ 
+  && ldconfig
 # installing mecab-ko-dic
 RUN wget -O /tmp/mecab-ko-dic-2.1.1-20180720.tar.gz https://bitbucket.org/eunjeon/mecab-ko-dic/downloads/mecab-ko-dic-2.1.1-20180720.tar.gz
-RUN tar -zxvf /tmp/mecab-ko-dic-2.1.1-20180720.tar.gz -C /tmp
-RUN cd /tmp/mecab-ko-dic-2.1.1-20180720
-RUN ./autogen.sh
-RUN ./configure
-RUN make
-RUN sudo make install
-RUN sudo ldconfig 
-# ----
+RUN tar -zxvf /tmp/mecab-ko-dic-2.1.1-20180720.tar.gz -C /tmp \
+  && cd /tmp/mecab-ko-dic-2.1.1-20180720 \
+  && ./autogen.sh \
+  &&  ./configure \
+  && make \
+  && make install \
+  && ldconfig
+# finish installing mecab-ko
+RUN rm -rf /tmp/mecab*
+RUN apt-get clean
+RUN cd $DIR_BEFORE
 RUN mkdir /opt/notebooks
 RUN touch /opt/nbconfig.json
 EXPOSE 8888
