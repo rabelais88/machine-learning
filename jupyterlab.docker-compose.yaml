@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  jupyter-lab:
+    image: jupyter/datascience-notebook:9b06df75e445
+    environment: 
+      - JUPYTER_ENABLE_LAB=yes
+    volumes: 
+      - ./notebooks:/home/jovyan
+    ports:
+      - 8888:8888
