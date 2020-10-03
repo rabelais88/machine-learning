@@ -5,7 +5,8 @@ RUN yes | pip install sqlalchemy pymysql
 RUN yes | pip install spacy natto-py
 RUN python -m spacy download en
 RUN rm -rf ~/.cache/pip
-RUN /opt/conda/bin/conda install -c conda-forge jupyter_contrib_nbextensions jupyter_nbextensions_configurator autopep8
+RUN /opt/conda/bin/conda install -c conda-forge jupyter_contrib_nbextensions jupyter_nbextensions_configurator autopep8 python-graphviz
+RUN /opt/conda/bin/conda install -c anaconda graphviz
 RUN DIR_BEFORE=$(pwd)
 # to use C compiler in mecab-ko
 RUN apt-get update
