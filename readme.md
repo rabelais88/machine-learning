@@ -15,4 +15,11 @@ docker-compose up
 
 # flush container from memory
 docker-compose down
+
+
+# boot up jupyter lab
+docker-compose -f jupyterlab.docker-compose.yaml up
+
+# flusher jupyter lab container from memory
+docker-compose -f jupyterlab.docker-compose down
 ```
