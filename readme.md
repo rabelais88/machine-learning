@@ -30,3 +30,8 @@ docker-compose -f jupyterlab.docker-compose.yaml up
 # flusher jupyter lab container from memory
 docker-compose -f jupyterlab.docker-compose down
 ```
+
+콘솔 창에 뜨는 메시지를 참조하여 아래와 같이 브라우저로 접속합니다
+```sh
+http://localhost:8888/?token=...
+```
