@@ -11,6 +11,8 @@ RUN DIR_BEFORE=$(pwd)
 # to use C compiler in mecab-ko
 RUN apt-get update
 RUN apt install -y build-essential automake
+RUN apt install -y fonts-nanum*
+RUN fc-cache -fv
 # installing mecab-ko
 # https://stackoverflow.com/questions/44451696/bin-sh-1-configure-not-found-dockerfile
 RUN wget -O /tmp/mecab-0.996-ko-0.9.2.tar.gz  https://bitbucket.org/eunjeon/mecab-ko/downloads/mecab-0.996-ko-0.9.2.tar.gz \
