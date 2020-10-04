@@ -12,7 +12,7 @@ this repo has been created to be used for machine-learning study.
 경우가 있기 때문에 도커 내부의 컨테이너 환경으로 분리하고자 만들었습니다.
 
 이 컨테이너는 한국어 분석을 염두에 두고 만들었습니다.
-특히 `mecab-ko/mecab-ko-dic`, `spacy` 그리고 한국어 폰트를 탑재합니다.
+특히 `mecab-ko/mecab-ko-dic`, `spacy` 그리고 한국어 폰트(`NanumGothic`)를 탑재합니다.
 
 이 저장소는 🧠머신러닝 학습용으로 만들었습니다.
 

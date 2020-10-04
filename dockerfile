@@ -1,6 +1,6 @@
 FROM continuumio/miniconda3:latest
 RUN /opt/conda/bin/conda install jupyter notebook nb_conda seaborn -y --quiet
-RUN yes | pip install graphviz sklearn pandas_profiling
+RUN yes | pip install graphviz sklearn pandas_profiling lightgbm
 RUN yes | pip install sqlalchemy pymysql
 RUN yes | pip install spacy natto-py
 RUN python -m spacy download en
